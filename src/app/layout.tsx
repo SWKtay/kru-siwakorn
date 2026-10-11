@@ -15,6 +15,9 @@ import "./globals.css";
 import Motion from "@/components/Motion";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kru-siwakorn.vercel.app"),
+  openGraph: { siteName: "ครูศิวกร แก้ววีด", locale: "th_TH", type: "website" },
+  twitter: { card: "summary_large_image" },
   title: { default: "ครูศิวกร แก้ววีด", template: "%s · ครูศิวกร แก้ววีด" },
   description: "เอกสาร สื่อการสอน และเครื่องมือของครูศิวกร แก้ววีด กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา โรงเรียนสาธิตมหาวิทยาลัยวลัยลักษณ์",
 };
