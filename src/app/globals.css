@@ -275,10 +275,16 @@ html.js [data-rv].in { opacity: 1; transform: none; }
 /* สลับโหมดสี */
 html.theming, html.theming body, html.theming body * { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease !important; }
 
+/* เครื่องที่ตั้งค่า "ลดการเคลื่อนไหว": ตัดการเลื่อน/ขยับตำแหน่งออก เหลือเฉพาะการจางและการเปลี่ยนสี */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  html.js [data-rv] { opacity: 1; transform: none; }
+  .tape .track, .ln > span, .hero .portrait, .imgin img, .pagefade { animation: none !important; }
+  html.js [data-rv] { transform: none; transition: opacity 0.6s ease var(--d, 0ms); }
   [data-par] { transform: none !important; }
+  .crow, .listlink, .link, .cta, .thumbs button { transition: color 0.2s ease, background-color 0.25s ease; }
+  .crow:hover { padding-left: 12px; } .listlink:hover { padding-left: 0; } .link:hover { letter-spacing: 0.08em; }
+  .thumbs button:hover { transform: none; }
+  .tile.fx img { transition: filter 0.5s ease; } .tile.fx:hover img, .tile.fx a:hover img { transform: none; }
+  .collapse { transition: none; }
 }
 .tile.fx > a:first-child { display: block; }

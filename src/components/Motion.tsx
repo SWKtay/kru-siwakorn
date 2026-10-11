@@ -8,7 +8,7 @@ export default function Motion() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-rv]"));
-    if (reduce || !("IntersectionObserver" in window)) {
+    if (!("IntersectionObserver" in window)) {
       els.forEach((e) => e.classList.add("in"));
       return;
     }
@@ -40,7 +40,7 @@ export default function Motion() {
       });
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(tick); };
-    if (par.length) { tick(); window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll); }
+    if (par.length && !reduce) { tick(); window.addEventListener("scroll", onScroll, { passive: true }); window.addEventListener("resize", onScroll); }
     return () => {
       io.disconnect(); window.clearTimeout(safety);
       window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll);
