@@ -5,11 +5,14 @@ import { EMAIL, QUOTE, homeCourses, media, pageImg, tools } from "@/data/site";
 
 const tape1 = ["สุขศึกษา", "พลศึกษา", "WEIGHT TRAINING", "ว่ายน้ำ", "ฟุตซอล", "วิเคราะห์กีฬา"];
 const tape2 = ["LEARN BY DOING", "เรียนด้วยการลงมือทำ", "SAFE CLASSROOM", "ชั้นเรียนปลอดภัย"];
-const Tape = ({ words, cls }: { words: string[]; cls: string }) => (
-  <div className={`tape ${cls}`} aria-hidden="true">
-    {Array.from({ length: 6 }).flatMap((_, r) => words.map((w, i) => <span key={`${r}-${i}`}>{w}&nbsp;&nbsp;■ ■&nbsp;&nbsp;</span>))}
-  </div>
-);
+const Tape = ({ words, cls }: { words: string[]; cls: string }) => {
+  const run = Array.from({ length: 4 }).flatMap((_, r) => words.map((w, i) => <span key={`${r}-${i}`}>{w}&nbsp;&nbsp;■ ■&nbsp;&nbsp;</span>));
+  return (
+    <div className={`tape ${cls}`} aria-hidden="true">
+      <div className="track"><span className="run">{run}</span><span className="run">{run}</span></div>
+    </div>
+  );
+};
 
 export default function Home() {
   const featured = ["personal-safety", "digital-safety-playbook", "teen-growth-blueprint", "body-engineering-blueprint"]
@@ -30,7 +33,7 @@ export default function Home() {
           </nav>
         </div>
         <div className="hero-row hero-a">
-          <h1>เรียนด้วย<br />การลงมือทำ</h1>
+          <h1><span className="ln"><span>เรียนด้วย</span></span><span className="ln"><span style={{ animationDelay: "90ms" }}>การลงมือทำ</span></span></h1>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 250, paddingTop: 18 }}>
             <Dots same />
             <p className="hero-meta">ครูศิวกร แก้ววีด<br />กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา<br />โรงเรียนสาธิตมหาวิทยาลัยวลัยลักษณ์</p>
@@ -38,11 +41,11 @@ export default function Home() {
         </div>
         <div className="hero-row hero-b">
           <p className="hero-meta">เอกสาร สื่อการสอน และเครื่องมือของทุกรายวิชา เปิดอ่านและดาวน์โหลดได้จากมือถือ ไม่ต้องเข้าสู่ระบบ</p>
-          <p className="h1b">ในชั้นเรียน<br />ที่ปลอดภัย</p>
+          <p className="h1b"><span className="ln"><span style={{ animationDelay: "260ms" }}>ในชั้นเรียน</span></span><span className="ln"><span style={{ animationDelay: "350ms" }}>ที่ปลอดภัย</span></span></p>
         </div>
       </header>
 
-      <section className="wrap intro">
+      <section className="wrap intro" data-rv>
         <div style={{ flex: "1 1 260px", maxWidth: 340, display: "flex", flexDirection: "column", gap: 18 }}>
           <Dots same />
           <div style={{ fontSize: 15, letterSpacing: "0.12em", fontWeight: 400 }}>THE NEXT-GEN PE TEACHER</div>
@@ -61,8 +64,8 @@ export default function Home() {
           <p className="small muted" style={{ maxWidth: 260 }}>ปีการศึกษา 2569 เลือกรายวิชาเพื่อดูหน่วยการเรียนรู้และหัวข้อที่เรียนแต่ละสัปดาห์</p>
         </div>
         <div className="main">
-          {homeCourses.map((c) => (
-            <Link key={c.id} href={`/courses/${c.id}`} className={`crow${c.hot ? " hot" : ""}`}>
+          {homeCourses.map((c, i) => (
+            <Link key={c.id} href={`/courses/${c.id}`} className={`crow${c.hot ? " hot" : ""}`} data-rv style={{ ["--d" as string]: `${i * 60}ms` }}>
               <span className="c1">{c.code}</span><span className="c2">{c.name}</span><span className="c3">{c.level}</span><span className="c4">{c.n}</span>
             </Link>
           ))}
@@ -75,8 +78,8 @@ export default function Home() {
           <Link href="/media" className="link">[ ดูสื่อทั้งหมด ]</Link>
         </div>
         <div className="tiles">
-          {featured.map((m) => (
-            <Link href={`/media/${m.slug}`} className="tile" key={m.slug}>
+          {featured.map((m, i) => (
+            <Link href={`/media/${m.slug}`} className="tile fx" key={m.slug} data-rv style={{ ["--d" as string]: `${i * 70}ms` }}>
               <img src={pageImg(m.slug, 1)} alt={`ปกสื่อ ${m.title}`} loading="lazy" />
               <span className="meta"><span style={{ color: "var(--fg)" }}>{m.title}</span><span>{m.subject}</span></span>
             </Link>
@@ -86,7 +89,7 @@ export default function Home() {
 
       <section className="toolsband">
         <div className="glow" aria-hidden="true" />
-        <div className="ghost wordmark" aria-hidden="true">tools</div>
+        <div className="ghost wordmark" aria-hidden="true" data-par="-0.14">tools</div>
         <div className="in" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 16 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             <div className="dots" aria-hidden="true"><span style={{ background: "#E87532" }} /><span /></div>
@@ -95,8 +98,8 @@ export default function Home() {
           <Link href="/tools" className="link">[ ดูรายละเอียดทุกเครื่องมือ ]</Link>
         </div>
         <div className="in toolcols">
-          {tools.map((t) => (
-            <div className="toolcol" key={t.name}>
+          {tools.map((t, i) => (
+            <div className="toolcol" key={t.name} data-rv style={{ ["--d" as string]: `${i * 90}ms` }}>
               <span className="who">{t.who}</span>
               <h3>{t.name}</h3>
               <p>{t.desc}</p>
@@ -123,7 +126,7 @@ export default function Home() {
             </div>
           </nav>
         </div>
-        <div className="big wordmark" aria-hidden="true">siwakorn</div>
+        <div className="bigwrap"><div className="big wordmark" aria-hidden="true" data-par="0.35" data-par-edge="bottom">siwakorn</div></div>
       </footer>
     </>
   );

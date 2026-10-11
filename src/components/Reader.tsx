@@ -15,7 +15,7 @@ export default function Reader({ slug, title, pages }: { slug: string; title: st
   return (
     <div className="view">
       <div className="stage">
-        <img src={pageImg(slug, page)} alt={`${title} หน้า ${page}`} />
+        <img key={page} className="pagefade" src={pageImg(slug, page)} alt={`${title} หน้า ${page}`} />
       </div>
       {pages > 1 && (
         <>

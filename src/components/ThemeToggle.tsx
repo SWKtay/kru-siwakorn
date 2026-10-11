@@ -9,7 +9,10 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   }, []);
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", next);
+    const root = document.documentElement;
+    root.classList.add("theming");
+    window.setTimeout(() => root.classList.remove("theming"), 450);
+    root.setAttribute("data-theme", next);
     try { localStorage.setItem("hub-theme", next); } catch {}
     setTheme(next);
   };

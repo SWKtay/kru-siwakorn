@@ -9,7 +9,7 @@ export default function AboutPage() {
     <>
       <TopBar current="about" />
       <section className="wrap abouthero">
-        <div className="photo"><img src="/img/portrait-about.jpg" alt="ครูศิวกร แก้ววีด" /></div>
+        <div className="photo imgin"><img src="/img/portrait-about.jpg" alt="ครูศิวกร แก้ววีด" /></div>
         <div className="txt">
           <Dots />
           <div className="eyebrow">THE NEXT-GEN PE TEACHER</div>
@@ -26,19 +26,19 @@ export default function AboutPage() {
 
       <section className="wrap" style={{ paddingBottom: 80 }}>
         <div className="eyebrow" style={{ paddingBottom: 14 }}>ข้อมูลครู</div>
-        <div className="rows">{about.facts.map(([k, v]) => (<div className="fact" key={k}><div className="k">{k}</div><div className="v">{v}</div></div>))}</div>
+        <div className="rows">{about.facts.map(([k, v]) => (<div className="fact" key={k} data-rv><div className="k">{k}</div><div className="v">{v}</div></div>))}</div>
       </section>
 
       <section className="wrap twocol" style={{ paddingBottom: 88 }}>
         <div style={{ flex: "1.3 1 420px", minWidth: 0 }}>
           <div className="eyebrow" style={{ paddingBottom: 14 }}>ประสบการณ์สอน</div>
           <div className="rows">{about.path.map(([y, t, d]) => (
-            <div className="pathrow" key={t}><div className="y">{y}</div><div style={{ flex: "1 1 260px", minWidth: 0 }}><div className="t">{t}</div><div className="d">{d}</div></div></div>
+            <div className="pathrow" key={t} data-rv><div className="y">{y}</div><div style={{ flex: "1 1 260px", minWidth: 0 }}><div className="t">{t}</div><div className="d">{d}</div></div></div>
           ))}</div>
         </div>
         <div style={{ flex: "1 1 340px", minWidth: 0 }}>
           <div className="eyebrow" style={{ paddingBottom: 14 }}>ความเชี่ยวชาญและใบรับรอง</div>
-          <div className="rows">{about.skills.map(([t, lv]) => (<div className="skill" key={t}><span>{t}</span><span className="lv">{lv}</span></div>))}</div>
+          <div className="rows">{about.skills.map(([t, lv]) => (<div className="skill" key={t} data-rv><span>{t}</span><span className="lv">{lv}</span></div>))}</div>
         </div>
       </section>
 

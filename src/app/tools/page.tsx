@@ -14,7 +14,7 @@ export default function ToolsPage() {
       </header>
       <section className="wrap" style={{ paddingBottom: 56 }}>
         {tools.map((t, i) => (
-          <div className={`toolblock${i === 0 ? " first" : ""}`} key={t.name}>
+          <div className={`toolblock${i === 0 ? " first" : ""}`} key={t.name} data-rv>
             <div className="l">
               <div className="top"><span>{t.no}</span><span>{t.who}</span></div>
               <div className="name">{t.name}</div>
@@ -24,7 +24,7 @@ export default function ToolsPage() {
             </div>
             <div className="r">
               <div className="eyebrow" style={{ paddingBottom: 10 }}>{t.listTitle}</div>
-              {t.list.map((s, k) => (<div className="step" key={k}><span className="n">0{k + 1}</span><span className="t">{s}</span></div>))}
+              {t.list.map((s, k) => (<div className="step" key={k} data-rv style={{ ["--d" as string]: `${120 + k * 70}ms` }}><span className="n">0{k + 1}</span><span className="t">{s}</span></div>))}
             </div>
           </div>
         ))}
