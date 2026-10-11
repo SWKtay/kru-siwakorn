@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Dots } from "@/components/Chrome";
-import { EMAIL, PORTFOLIO_URL, QUOTE, homeCourses, media, pageImg, tools } from "@/data/site";
+import { EMAIL, QUOTE, homeCourses, media, pageImg, tools } from "@/data/site";
 
 const tape1 = ["สุขศึกษา", "พลศึกษา", "WEIGHT TRAINING", "ว่ายน้ำ", "ฟุตซอล", "วิเคราะห์กีฬา"];
 const tape2 = ["LEARN BY DOING", "เรียนด้วยการลงมือทำ", "SAFE CLASSROOM", "ชั้นเรียนปลอดภัย"];
@@ -120,7 +120,6 @@ export default function Home() {
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <Link href="/about" className="link">[ เกี่ยวกับครู ]</Link>
-              <a href={PORTFOLIO_URL} className="link" target="_blank" rel="noopener noreferrer">[ สำหรับครู: แฟ้มผลการปฏิบัติงาน ]</a>
             </div>
           </nav>
         </div>

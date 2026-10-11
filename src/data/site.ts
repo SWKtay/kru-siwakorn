@@ -41,7 +41,6 @@ export const tools = [
 ];
 
 export const EMAIL = "siwakorn.ka@wu.ac.th";
-export const PORTFOLIO_URL = "https://claude.ai/artifact/4HtwdJQxpVyZDgzLBLSbUi";
 export const QUOTE = ["“ไม่ใช่แค่สอนให้เล่นกีฬาเป็น แต่สอนให้รู้จักวินัย ", "ความรับผิดชอบ การทำงานเป็นทีม ", "และการก้าวข้ามขีดจำกัดของตัวเอง”"];
 
 export const homeCourses = [
